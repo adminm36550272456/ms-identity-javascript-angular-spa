@@ -24,9 +24,9 @@ export function loggerCallback(logLevel: LogLevel, message: string) {
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
     auth: {
-      clientId: 'Enter_the_Application_Id_Here',
-      authority: 'Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here',
-      redirectUri: 'Enter_the_Redirect_Uri_Here'
+      clientId: 'f6fc90bc-e165-45a4-b329-32c1b2787e6c',
+      authority: 'https://login.microsoftonline.com/bf8dc570-67dc-4981-a340-10d9ef855567',
+      redirectUri: 'https://red-cliff-0901a2803.1.azurestaticapps.net'
     },
     cache: {
       cacheLocation: BrowserCacheLocation.LocalStorage,
@@ -44,7 +44,7 @@ export function MSALInstanceFactory(): IPublicClientApplication {
 
 export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   const protectedResourceMap = new Map<string, Array<string>>();
-  protectedResourceMap.set('Enter_the_Graph_Endpoint_Herev1.0/me', ['user.read']);
+  protectedResourceMap.set('https://graph.microsoft.com/v1.0/me', ['user.read']);
 
   return {
     interactionType: InteractionType.Redirect,
